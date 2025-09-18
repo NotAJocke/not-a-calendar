@@ -1,5 +1,7 @@
 <script lang="ts">
 	import { setContext } from 'svelte';
+	import { DateTime } from 'luxon';
+
 	import { WeeklyStore } from '../../stores/weekly-store.svelte';
 	import EventView from './event-view.svelte';
 	import Grid from './grid.svelte';
@@ -9,13 +11,16 @@
 	let store = new WeeklyStore();
 	setContext('weekly-store', store);
 
-	const events = [
-		{ day: '2', start: '4.5', end: '6', title: 'test' },
-		{ day: '0', start: '16', end: '17', title: 'Fitness' },
-		{ day: '1', start: '15', end: '16', title: 'Fitness' },
-		{ day: '3', start: '15', end: '16', title: 'Fitness' },
-		{ day: '4', start: '14', end: '15', title: 'Fitness' }
-	];
+	let { tasks } = $props();
+	store.tasks = tasks;
+
+	function getDayIndex(iso: string) {
+		return (DateTime.fromISO(iso).weekday + 7 - 1) % 7;
+	}
+
+	function getHour(iso: string) {
+		return DateTime.fromISO(iso).hour + DateTime.fromISO(iso).minute / 60;
+	}
 </script>
 
 <div class="w-screen flex relative">
@@ -28,8 +33,13 @@
 			<div class="relative w-full">
 				<Grid />
 
-				{#each events as event}
-					<EventView day={event.day} start={event.start} end={event.end} title={event.title} />
+				{#each store.tasksInView as task}
+					<EventView
+						day={getDayIndex(task.deadline.start)}
+						start={getHour(task.deadline.start)}
+						end={getHour(task.deadline.end)}
+						title={task.title}
+					/>
 				{/each}
 			</div>
 		</div>
