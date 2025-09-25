@@ -1,0 +1,3 @@
+[tasks]
+dev = "pnpm run dev"
+devo = "pnpm run dev --open"
