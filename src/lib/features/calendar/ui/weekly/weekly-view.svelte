@@ -14,16 +14,10 @@
 	let { tasks } = $props();
 	store.tasks = tasks;
 
-	function getDayIndex(iso: string) {
-		return (DateTime.fromISO(iso).weekday + 7 - 1) % 7;
-	}
-
-	function getHour(iso: string) {
-		return DateTime.fromISO(iso).hour + DateTime.fromISO(iso).minute / 60;
-	}
+	$effect(() => console.log(store.taskSlicesInView));
 </script>
 
-<div class="w-screen flex relative">
+<div class="w-full flex relative">
 	<div class="w-full flex flex-col">
 		<HeaderView />
 
@@ -33,13 +27,8 @@
 			<div class="relative w-full">
 				<Grid />
 
-				{#each store.tasksInView as task}
-					<EventView
-						day={getDayIndex(task.deadline.start)}
-						start={getHour(task.deadline.start)}
-						end={getHour(task.deadline.end)}
-						title={task.title}
-					/>
+				{#each store.taskSlicesInView as task (task.taskId + '-' + task.day + '-' + task.role)}
+					<EventView day={task.day} start={task.start} end={task.end} title={task.title} />
 				{/each}
 			</div>
 		</div>

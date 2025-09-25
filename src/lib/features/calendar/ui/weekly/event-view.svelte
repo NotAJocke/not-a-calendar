@@ -5,7 +5,7 @@
 	let store: WeeklyStore = getContext('weekly-store');
 
 	let { day, start, end, title } = $props();
-	let length = (end - start) * 60;
+	let length = (end - start) * 61;
 </script>
 
 <div
@@ -13,7 +13,7 @@
 	style="
         width: calc(100% / {store.daysDisplayed} - 4px);
         left: calc(100% / {store.daysDisplayed} * {day} + 2px);
-        top: calc(61px * {start} + 1px);
+        top: calc(61px * {start});
         height: calc({length}px);
     "
 >

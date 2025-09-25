@@ -9,6 +9,13 @@ export const load: PageServerLoad = async () => {
 		createTask({
 			title: 'Test',
 			deadline: Interval.fromDateTimes(now, now.plus({ hours: 1 }))
+		}),
+		createTask({
+			title: 'Wtf',
+			deadline: Interval.fromDateTimes(
+				now.plus({ days: 1, hours: 1 }),
+				now.plus({ days: 4, hours: 2 })
+			)
 		})
 	];
 

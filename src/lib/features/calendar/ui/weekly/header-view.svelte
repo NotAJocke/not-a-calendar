@@ -1,6 +1,8 @@
 <script lang="ts">
 	import { getContext } from 'svelte';
 	import type { WeeklyStore } from '../../stores/weekly-store.svelte';
+	import ChevronRight from '$lib/assets/chevron-right.svg';
+	import ChevronLeft from '$lib/assets/chevron-left.svg';
 
 	let store: WeeklyStore = getContext('weekly-store');
 </script>
@@ -8,19 +10,23 @@
 <header class="w-full sticky z-50 top-0 bg-white flex flex-col items-center">
 	<h1>{store.currentWeekStart.toFormat('LLLL yyyy')}</h1>
 
-	<div class="flex flex-row gap-2">
+	<div class="flex flex-row gap-1">
 		<button
 			class="border border-neutral-200 rounded-lg shadow-xs px-2 py-1 bg-white hover:bg-neutral-50 cursor-pointer"
-			on:click={() => store.back()}>Back</button
+			on:click={() => store.back()}
 		>
+			<img src={ChevronLeft} alt="" width="18" />
+		</button>
 		<button
 			class="border border-neutral-200 rounded-lg shadow-xs px-2 py-1 bg-white hover:bg-neutral-50 cursor-pointer"
 			on:click={() => store.resetOffset()}>Today</button
 		>
 		<button
 			class="border border-neutral-200 rounded-lg shadow-xs px-2 py-1 bg-white hover:bg-neutral-50 cursor-pointer"
-			on:click={() => store.next()}>Next</button
+			on:click={() => store.next()}
 		>
+			<img src={ChevronRight} alt="" width="18" />
+		</button>
 	</div>
 
 	<div class="w-full flex flex-row">
