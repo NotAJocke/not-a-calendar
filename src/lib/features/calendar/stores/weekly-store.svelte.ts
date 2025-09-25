@@ -34,8 +34,8 @@ export class WeeklyStore {
 	}
 
 	get tasksInView(): Task[] {
-		const viewStart = this.currentWeekStart.startOf('day');
-		const viewEnd = viewStart.plus({ days: this.daysDisplayed }).endOf('day');
+		const viewStart = this.currentWeekStart;
+		const viewEnd = viewStart.plus({ days: this.daysDisplayed });
 		const viewInterval = Interval.fromDateTimes(viewStart, viewEnd);
 
 		return this.tasks.filter((task) => {
