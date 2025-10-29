@@ -1,38 +1,55 @@
-# sv
+# Project Overview
+[App Name — TBD] is a productivity app combining a calendar and task manager that acts like a rule-based personal secretary — no AI, just deterministic scheduling using task metadata and user preferences.
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+## Core Features
+### Calendar
+- Multiple views: monthly, weekly, yearly, custom range
+- Add, view, update, and delete events
+- Support for recurring events and reminders
 
-## Creating a project
+### Tasks
+Events and reminders are unified as Tasks, each holding metadata used for intelligent scheduling.
 
-If you're seeing this, you've probably already done this step. Congrats!
+Task fields:
+- Title, description, completion state
+- Estimated duration (effortLevel)
+- Priority (priority)
+- Dependencies
+- Deadline
+- Do dates (work sessions): multiple planned time blocks before the deadline
+- Context tags (e.g., @home, @office, @computer)
+- Pinned / hard deadline (isPinned)
+- Progress tracking (% done, time logged)
 
-```sh
-# create a new project in the current directory
-npx sv create
+User Preferences:
+Used to guide auto-scheduling:
+- Work hours and unavailable slots
+- Preferred focus periods
+- Minimum rest time between sessions
+- Task category priorities
+ 
+## Core Goal
+Automatically organize the calendar, schedule tasks efficiently, reschedule when needed, and balance workload — behaving like a personal secretary.
 
-# create a new project in my-app
-npx sv create my-app
+## Technical Overview
+Stack:
+- Frontend + backend: SvelteKit v5
+- Styling: TailwindCSS
+- Database: in-memory for now, plan to migrate later
+
+## Project Structure #! TO REMOVE
 ```
+  src/
+ ├─ app.css / app.html / app.d.ts
+ ├─ lib/
+ │    ├─ assets/        # icons, images
+ │    ├─ features/      # feature-specific code (calendar, tasks, etc.)
+ │    │    ├─ models/
+ │    │    ├─ stores/
+ │    │    ├─ ui/
+ │    │    └─ utils/
+ │    ├─ server/        # backend logic & database schema
+ │    ├─ shared/        # reusable models, utils
+ └─ routes/             # SvelteKit pages & layouts
 
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```sh
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
 ```
-
-## Building
-
-To create a production version of your app:
-
-```sh
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.

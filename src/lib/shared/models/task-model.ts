@@ -13,7 +13,7 @@ export type Task = {
 		start: string; // ISO string
 		end: string; // ISO string
 	};
-	doDates?: { start: string; end: string }[];
+doDates?: { start: string; end: string }[];
 
 	// Smart scheduling data
 	estimatedTime: number; // minutes
