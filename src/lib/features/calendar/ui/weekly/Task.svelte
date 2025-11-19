@@ -10,8 +10,8 @@
 
 <div
 	class="absolute bg-red-300 rounded-xl text-white p-2"
-	style="width: calc(100% / {daysDisplayed} - 4px); height: {height}px; top: {top}px; left: calc(100% / {daysDisplayed} * {task.dayIndex -
-		1} + 2px);"
+	style="width: calc(100% / {daysDisplayed} / {task.columnCount}); height: {height}px; top: {top}px; left: calc(100% / {daysDisplayed} * {task.dayIndex -
+		1} + (100% / {daysDisplayed} / {task.columnCount} * {task.columnIndex}));"
 >
 	{task.title}
 </div>

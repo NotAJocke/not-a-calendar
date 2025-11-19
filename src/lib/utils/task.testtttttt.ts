@@ -4,6 +4,8 @@ import { DateTime, Interval } from 'luxon';
 import { expect, test } from 'vitest';
 import { createTask, expandTasks } from './task';
 
+//TODO: delete this file when moving the layout tests
+
 test('Simple task to rendered task', () => {
 	const start = DateTime.now().endOf('hour');
 	const end = start.plus({ hours: 2 });

@@ -1,0 +1,8 @@
+default_provider = "age"
+
+[providers.age]
+type = "age"
+recipients = ["age1tqjcwn7m0vqz5mtqynytfyvhctxg2759tl9y3jalwnc7vq69fvlqkeejfd"]
+
+[secrets]
+TEST= { provider = "age", value = "YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSB3VTlZYkhrdy9mN1BhSHRRNVRib1pIQURDMVhZVGY2NXdpU05zanIrSkdVCnBHc2pLREttQmFUTWg5RjZNK2J5cFk1NWMxeGhEYXQ5Z3JyaFMxY2ZaVlEKLT4gVG94ZSx0YH0tZ3JlYXNlIFN+IGRqT3pFIHpben0uICYKZmR6SkkrMHd1Z2pEbTJwcXFFM1U0RWhmVlBmK1RKZVZhd2JWR2pnbVNLaEhPSnVEVmF0VjVpc2lHeUg1bjdnZQp5bjlRR0VoaDR1eFIxWGViNHNFazlQUQotLS0gaVh6Z1IzcWt2MndpU25RNnJ1VFBINDNiOGlDd3J3L1V2cGYrTGRMM3ROMArSrR2NNnunMx3jFiL2cAAHJxQN7SMFxPE0NabcH36r4THTmPM=" }
