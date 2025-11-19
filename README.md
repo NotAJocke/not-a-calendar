@@ -19,7 +19,6 @@ Task fields:
 - Do dates (work sessions): multiple planned time blocks before the deadline
 - Context tags (e.g., @home, @office, @computer)
 - Pinned / hard deadline (isPinned)
-- Progress tracking (% done, time logged)
 
 User Preferences:
 Used to guide auto-scheduling:
@@ -27,7 +26,7 @@ Used to guide auto-scheduling:
 - Preferred focus periods
 - Minimum rest time between sessions
 - Task category priorities
- 
+
 ## Core Goal
 Automatically organize the calendar, schedule tasks efficiently, reschedule when needed, and balance workload — behaving like a personal secretary.
 
